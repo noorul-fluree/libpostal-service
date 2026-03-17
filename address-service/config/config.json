@@ -1,0 +1,36 @@
+{
+    "server": {
+        "port": 8080,
+        "threads": 0,
+        "max_connections": 100000
+    },
+    "libpostal": {
+        "data_dir": "/home/noorulk/libpostal_data/libpostal",
+        "default_country": "",
+        "default_language": ""
+    },
+    "cache": {
+        "enabled": true,
+        "max_entries": 5000000,
+        "ttl_seconds": 86400
+    },
+    "batch": {
+        "max_size": 2000,
+        "timeout_ms": 30000
+    },
+    "rules_engine": {
+        "enabled": true
+    },
+    "llm": {
+        "enabled": false,
+        "model_path": "/models/mistral-7b-q4.gguf",
+        "confidence_threshold": 0.85,
+        "low_threshold": 0.70,
+        "max_concurrent": 4,
+        "timeout_ms": 5000
+    },
+    "metrics": {
+        "enabled": true,
+        "port": 9090
+    }
+}

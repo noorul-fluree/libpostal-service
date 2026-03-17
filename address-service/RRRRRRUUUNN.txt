@@ -1,0 +1,43 @@
+noorulk@DESKTOP-295QT3R:~/FAISS-Actual-26June25/address-service$ 
+# 1. Clean old build
+cd ~/FAISS-Actual-26June25/address-service
+rm -rf build
+
+
+mkdir -p build && cd build && \
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_LLM=OFF -DENABLE_TESTS=OFF && \
+make -j$(nproc) 2>&1 | tee ../build.log
+
+ORRRRRRRRRRRRRRRR:
+
+cd ~/FAISS-Actual-26June25/address-service
+rm -rf build
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF && make -j$(nproc) 2>&1 | tee ../build.log
+
+
+just rebuild and rerun:???????????????????
+
+
+# 1. Go to project root
+cd ~/FAISS-Actual-26June25/address-service
+
+# 2. Rebuild (no need to delete build/ unless CMakeLists.txt changed)
+cd build && make -j$(nproc)
+
+# 3. Run
+cd ..
+./build/address-service --config config/config.json
+
+When to do a full clean rebuild (delete build/ first):?????????????????///
+
+rm -rf build && mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF
+make -j$(nproc)
+
+ WHENNNNNNNNNNNNNNNNNNNNNNNNN?
+ Do this only if you:
+
+        Change CMakeLists.txt
+        Add or remove a source file
+        Get weird linker errors after a normal make

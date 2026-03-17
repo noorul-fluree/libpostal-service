@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/main.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/main.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/main.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/AddressParser.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/services/AddressParser.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/services/AddressParser.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/PreProcessor.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/services/PreProcessor.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/services/PreProcessor.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/RuleEngine.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/services/RuleEngine.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/services/RuleEngine.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/ConfidenceScorer.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/services/ConfidenceScorer.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/services/ConfidenceScorer.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/CacheManager.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/services/CacheManager.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/services/CacheManager.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/MetricsCollector.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/services/MetricsCollector.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/services/MetricsCollector.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/ParseController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/ParseController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/ParseController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/BatchController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/BatchController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/BatchController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/HealthController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/HealthController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/HealthController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service/build",
+  "command": "/usr/bin/c++  -I/home/noorulk/FAISS-Actual-26June25/address-service/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/MetricsController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/MetricsController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service/src/controllers/MetricsController.cc"
+}
+]
