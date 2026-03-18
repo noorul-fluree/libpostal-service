@@ -30,3 +30,14 @@ make -j$(nproc)
 # With LLM compiled in:
 cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF -DENABLE_MIMALLOC=OFF -DENABLE_LLM=ON
 make -j$(nproc)
+
+IMPOOOOORTTANT------------ 🧹 Only if something breaks again
+cd ~/FAISS-Actual-26June25/address-service-optimized
+rm -rf build CMakeCache.txt CMakeFiles Makefile cmake_install.cmake
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF -DENABLE_MIMALLOC=OFF
+make -j$(nproc)
+
+cd ~/FAISS-Actual-26June25/address-service-optimized
+export DISABLE_LLM=true
+./build/address-service --config config/config.json
