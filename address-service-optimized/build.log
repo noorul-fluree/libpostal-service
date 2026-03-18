@@ -1,0 +1,33 @@
+-- jsoncpp version:1.9.5
+-- Found UUID: /usr/lib/x86_64-linux-gnu/libuuid.so
+-- pg inc: /usr/include/postgresql
+-- OpenMP found
+-- 
+-- === address-service optimization summary ===
+--   Build type   : Debug
+--   LTO          : TRUE
+--   mimalloc     : OFF
+--   OpenMP       : ON
+--   LLM fallback : OFF
+--   Redis L2     : OFF
+-- ============================================
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/noorulk/FAISS-Actual-26June25/address-service-optimized/build
+Consolidate compiler generated dependencies of target address-service-tests
+[ 14%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_preprocessor.cc.o
+[ 14%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_main.cc.o
+[ 28%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_confidence.cc.o
+[ 28%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_cache.cc.o
+[ 35%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_validator.cc.o
+[ 42%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_rule_engine.cc.o
+[ 50%] Building CXX object CMakeFiles/address-service-tests.dir/tests/test_parser.cc.o
+[ 57%] Building CXX object CMakeFiles/address-service-tests.dir/src/services/PreProcessor.cc.o
+[ 64%] Building CXX object CMakeFiles/address-service-tests.dir/src/services/AddressParser.cc.o
+[ 71%] Building CXX object CMakeFiles/address-service-tests.dir/src/services/RuleEngine.cc.o
+[ 78%] Building CXX object CMakeFiles/address-service-tests.dir/src/services/ConfidenceScorer.cc.o
+[ 85%] Building CXX object CMakeFiles/address-service-tests.dir/src/services/CacheManager.cc.o
+[ 92%] Building CXX object CMakeFiles/address-service-tests.dir/src/services/MetricsCollector.cc.o
+[100%] Linking CXX executable address-service-tests
+[100%] Built target address-service-tests

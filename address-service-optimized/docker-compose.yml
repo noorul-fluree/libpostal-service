@@ -1,0 +1,135 @@
+version: '3.8'
+
+services:
+  # ============================================
+  #  Address Normalization Service
+  # ============================================
+  address-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENABLE_LLM: "OFF"
+    container_name: address-service
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+    environment:
+      - LIBPOSTAL_DATA_DIR=/data/libpostal
+      - CACHE_MAX_SIZE=2000000
+      - LLM_ENABLED=false
+      - LOG_LEVEL=info
+    volumes:
+      - libpostal-data:/data/libpostal
+      - ./config/config.json:/etc/address-service/config.json:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 16G
+        reservations:
+          cpus: '2'
+          memory: 8G
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8080/health/live"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 45s
+    networks:
+      - address-net
+
+  # ============================================
+  #  Nginx Load Balancer (for multi-instance)
+  # ============================================
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: address-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      address-service:
+        condition: service_healthy
+    networks:
+      - address-net
+
+  # ============================================
+  #  Redis (optional L2 cache)
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: address-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --maxmemory 2gb --maxmemory-policy allkeys-lru
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    networks:
+      - address-net
+
+  # ============================================
+  #  Prometheus (metrics collection)
+  # ============================================
+  prometheus:
+    image: prom/prometheus:v2.50.0
+    container_name: address-prometheus
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - address-net
+
+  # ============================================
+  #  Grafana (dashboards)
+  # ============================================
+  grafana:
+    image: grafana/grafana:10.3.1
+    container_name: address-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - address-net
+
+  # ============================================
+  #  libpostal Senzing v1.2 data downloader
+  # ============================================
+  libpostal-data-init:
+    image: curlimages/curl:latest
+    container_name: libpostal-data-init
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      if [ ! -f /data/libpostal/address_expansions.dat ]; then
+        echo 'Downloading Senzing v1.2 libpostal data...'
+        cd /tmp
+        curl -L -o language_classifier.tar.gz https://public-read-libpostal-data.s3.amazonaws.com/v1.1.0/language_classifier.tar.gz
+        curl -L -o libpostal_data.tar.gz https://public-read-libpostal-data.s3.amazonaws.com/v1.1.0/libpostal_data.tar.gz
+        curl -L -o parser.tar.gz https://public-read-libpostal-data.s3.amazonaws.com/v1.2.0/parser.tar.gz
+        tar -xzf language_classifier.tar.gz -C /data/libpostal
+        tar -xzf libpostal_data.tar.gz -C /data/libpostal
+        tar -xzf parser.tar.gz -C /data/libpostal
+        echo 'Senzing v1.2 data installed!'
+      else
+        echo 'libpostal data already present'
+      fi
+      "
+    volumes:
+      - libpostal-data:/data/libpostal
+    profiles:
+      - init
+
+volumes:
+  libpostal-data:
+    driver: local
+
+networks:
+  address-net:
+    driver: bridge
