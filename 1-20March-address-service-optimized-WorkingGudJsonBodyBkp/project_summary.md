@@ -264,3 +264,17 @@ Files are written to:
 2. Create `src/controllers/MyController.cc` — extern the globals, implement handler
 3. Add to `CMakeLists.txt` SOURCES: `src/controllers/MyController.cc`
 4. Run `cmake .. && make -j$(nproc)`
+
+## API Endpoints
+
+The service exposes **9 endpoints**:
+
+- `/api/v1/parse` — Parse a **single address**  
+- `/api/v1/normalize` — Return **libpostal normalized expansions**  
+- `/api/v1/batch` — Process **up to 2000 addresses** with deduplication and parallel processing  
+- `/api/v1/enrich` — Enrich JSON records by adding `normalize_<addr_col>` fields  
+- `/health/live` — Liveness check  
+- `/health/ready` — Readiness check  
+- `/health/startup` — Startup check  
+- `/health/info` — Service info  
+- `/metrics` — Expose metrics in **Prometheus format**
