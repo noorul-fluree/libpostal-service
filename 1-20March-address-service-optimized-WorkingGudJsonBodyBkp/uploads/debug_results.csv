@@ -1,0 +1,3 @@
+"addr","city","confidence","country","expansions","from_cache","house_number","id","latency_ms","name","phone","postcode","road","state"
+"123 MG Road, Bengaluru 560001","bengaluru",0.85312500000000002,"india","mahatma gandhi road",true,"123",1,0.0,"Alice","9876","560001","mahatma gandhi road","karnataka"
+"350 Fifth Ave, New York NY 10118","new york",0.80300000000000005,"united states","5th avenue|5 avenue",true,"350",2,0.0,"Bob","","10118","fifth avenue","ny"

@@ -1,0 +1,82 @@
+[
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/main.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/main.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/main.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/AddressParser.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/AddressParser.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/AddressParser.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -O3 -o CMakeFiles/address-service.dir/src/services/PreProcessor.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/PreProcessor.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/PreProcessor.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -O3 -o CMakeFiles/address-service.dir/src/services/RuleEngine.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/RuleEngine.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/RuleEngine.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -O3 -o CMakeFiles/address-service.dir/src/services/ConfidenceScorer.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/ConfidenceScorer.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/ConfidenceScorer.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -O3 -o CMakeFiles/address-service.dir/src/services/CacheManager.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/CacheManager.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/CacheManager.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -O3 -o CMakeFiles/address-service.dir/src/services/MetricsCollector.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/MetricsCollector.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/MetricsCollector.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/services/LLMFallback.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/LLMFallback.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/services/LLMFallback.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/ParseController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/ParseController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/ParseController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -O3 -o CMakeFiles/address-service.dir/src/controllers/BatchController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/BatchController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/BatchController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/HealthController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/HealthController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/HealthController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/MetricsController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/MetricsController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/MetricsController.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/ApiKeyFilter.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/ApiKeyFilter.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/ApiKeyFilter.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/JwtAuthFilter.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/JwtAuthFilter.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/JwtAuthFilter.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/AuthFilter.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/AuthFilter.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/AuthFilter.cc"
+},
+{
+  "directory": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized",
+  "command": "/usr/bin/c++ -D_OPENMP=1 -I/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/src -I/home/noorulk/FAISS-Actual-26June25/arrow/cpp/build/src -isystem /usr/include/jsoncpp -O3 -DNDEBUG -O3 -march=native -funroll-loops -ffast-math -flto -fno-fat-lto-objects -fvisibility=hidden -fvisibility-inlines-hidden -fopenmp -std=gnu++17 -o CMakeFiles/address-service.dir/src/controllers/EnrichController.cc.o -c /home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/EnrichController.cc",
+  "file": "/home/noorulk/FAISS-Actual-26June25/address-service-optimized/src/controllers/EnrichController.cc"
+}
+]

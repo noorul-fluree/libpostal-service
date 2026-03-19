@@ -1,0 +1,7 @@
+Consolidate compiler generated dependencies of target address-service
+[  5%] Building CXX object CMakeFiles/address-service.dir/src/controllers/UploadController.cc.o
+<command-line>: warning: "_OPENMP" redefined
+<built-in>: note: this is the location of the previous definition
+[ 11%] Linking CXX executable address-service
+lto-wrapper: warning: using serial compilation of 6 LTRANS jobs
+[100%] Built target address-service
