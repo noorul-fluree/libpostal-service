@@ -26,7 +26,7 @@ public:
     // Configuration
     static constexpr size_t MAX_ADDRESS_LENGTH = 500;    // chars
     static constexpr size_t MIN_ADDRESS_LENGTH = 3;      // chars
-    static constexpr int MAX_BATCH_SIZE = 2000;
+    static constexpr int MAX_BATCH_SIZE = 5000;
     static constexpr size_t MAX_BODY_SIZE = 10 * 1024 * 1024; // 10 MB
 
     // Validate a single address string
