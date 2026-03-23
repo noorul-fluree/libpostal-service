@@ -25,12 +25,12 @@ public:
     //  WRITE_JSON  = writes ./uploads/debug_results.json after each request
     //  WRITE_CSV   = writes ./uploads/debug_results.csv  after each request
     // -------------------------------------------------------------------------
-    static constexpr bool WRITE_JSON_DEBUG = false; // true
-    static constexpr bool WRITE_CSV_DEBUG  = false; // true
+    static constexpr bool WRITE_JSON_DEBUG = true; // true
+    static constexpr bool WRITE_CSV_DEBUG  = true; // true
 
 private:
     static constexpr int MAX_EXPANSIONS = 3;
-    static constexpr int MAX_RECORDS    = 2000;
+    static constexpr int MAX_RECORDS    = 5000;
 
     static std::string detectAddressColumn(const Json::Value& first_record);
     static std::string detectKeyColumn(const Json::Value& first_record,
