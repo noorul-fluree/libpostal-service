@@ -82,8 +82,7 @@ static void printBanner(const addr::ServiceConfig& cfg, int threads) {
               << "  Worker threads: " << threads << "\n"
               << "  Cache:          " << (cfg.cache_enabled ? "enabled" : "disabled");
     if (cfg.cache_enabled)
-        std::cout << " (max " << cfg.cache_max_entries
-                  << " entries, TTL " << cfg.cache_ttl_seconds << "s)";
+        std::cout << " (max " << cfg.cache_max_entries << " entries, TTL " << cfg.cache_ttl_seconds << "s)";
     std::cout << "\n"
               << "  Rule engine:    " << (cfg.rules_enabled ? "enabled" : "disabled") << "\n"
               << "  LLM fallback:   disabled\n"
@@ -91,19 +90,6 @@ static void printBanner(const addr::ServiceConfig& cfg, int threads) {
               << "  Max addr len:   " << cfg.max_address_length << " chars\n"
               << "  Batch max:      " << cfg.batch_max_size << " addresses\n"
               << "  libpostal data: " << cfg.libpostal_data_dir << "\n"
-              << "====================================================\n"
-              << "\n"
-              << "  Endpoints available:\n"
-              << "  ┌─ POST  http://0.0.0.0:" << cfg.port << "/api/v1/parse\n"
-              << "  ├─ POST  http://0.0.0.0:" << cfg.port << "/api/v1/normalize\n"
-              << "  ├─ POST  http://0.0.0.0:" << cfg.port << "/api/v1/batch   (max " << cfg.batch_max_size << " records)\n"
-              << "  ├─ POST  http://0.0.0.0:" << cfg.port << "/api/v1/enrich  (max " << cfg.batch_max_size << " records)\n"
-              << "  ├─ GET   http://0.0.0.0:" << cfg.port << "/health/live\n"
-              << "  ├─ GET   http://0.0.0.0:" << cfg.port << "/health/ready\n"
-              << "  ├─ GET   http://0.0.0.0:" << cfg.port << "/health/startup\n"
-              << "  ├─ GET   http://0.0.0.0:" << cfg.port << "/health/info\n"
-              << "  └─ GET   http://0.0.0.0:" << cfg.port << "/metrics\n"
-              << "\n"
               << "====================================================\n\n";
 }
 
