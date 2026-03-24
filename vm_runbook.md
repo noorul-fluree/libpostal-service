@@ -44,23 +44,28 @@ address-service-optimized/          ← WSL source
 ├── CMakeLists.txt                  ← WSL build (with Arrow)
 └── api_bundle_for_vm.sh            ← bundle script (not used for VM build)
 
-/home/flureelabs/                   ← VM
-├── address-service/                ← running service
-│   ├── bin/address-service         ← compiled binary
-│   ├── config/config.json          ← active config
-│   ├── data/
-│   │   ├── libpostal/              ← standard model data
-│   │   └── libpostal_senzing/      ← Senzing v1.2 model data
-│   ├── lib/                        ← bundled libs (libpostal only now)
-│   ├── logs/
-│   ├── uploads/
-│   └── run.sh                      ← start script
-├── address-service-build/          ← VM source + build dir
-│   ├── src/
-│   ├── config/
-│   ├── CMakeLists.txt              ← VM build (Arrow removed)
-│   └── build/                      ← cmake build output
-└── libpostal/                      ← libpostal source (compiled twice)
+/home/flureelabs/                        ← VM home
+└── address-parser-service/              ← parent folder for this service
+    ├── address-service/                 ← running service
+    │   ├── bin/address-service          ← compiled binary
+    │   ├── config/config.json           ← active config
+    │   ├── data/
+    │   │   ├── libpostal/               ← standard model data
+    │   │   └── libpostal_senzing/       ← Senzing v1.2 model data
+    │   ├── lib/                         ← bundled libs
+    │   ├── logs/                        ← service.log lives here
+    │   ├── uploads/
+    │   └── run.sh                       ← start script
+    ├── address-service-build/           ← VM source + build dir
+    │   ├── src/
+    │   ├── config/
+    │   ├── CMakeLists.txt               ← VM build (Arrow removed)
+    │   └── build/                       ← cmake build output
+    ├── address-service-bundle.tar.gz    ← original WSL bundle
+    ├── address-service-src.tar.gz       ← source tarball from WSL
+    ├── drogon/                          ← Drogon source (compiled on VM)
+    ├── libpostal/                       ← libpostal source (compiled twice)
+    └── vm-setup.sh                      ← setup script
 ```
 
 ---
@@ -83,21 +88,26 @@ address-service-optimized/          ← WSL source
 
 ## Running the Service
 
+### Run in foreground (Ctrl+C to stop — good for testing/debugging)
+```bash
+cd /home/flureelabs/address-parser-service/address-service
+bash run.sh
+```
+
 ### Run in background (survives Ctrl+C)
 ```bash
-cd ~/address-service
+cd /home/flureelabs/address-parser-service/address-service
 nohup bash run.sh > logs/service.log 2>&1 &
 echo "PID: $!"
 ```
 
 ### View live logs
 ```bash
-tail -f ~/address-service/logs/service.log
+tail -f /home/flureelabs/address-parser-service/address-service/logs/service.log
 ```
 
 ### Stop the service
 ```bash
-# Find PID and kill
 pkill -f "address-service"
 # or
 kill $(pgrep -f "address-service")
@@ -134,19 +144,19 @@ sudo systemctl disable address-service
 **One line change in config — no rebuild needed:**
 
 ```bash
-nano ~/address-service/config/config.json
+nano /home/flureelabs/address-parser-service/address-service/config/config.json
 ```
 
 ```json
-"data_dir": "/home/flureelabs/address-service/data/libpostal"          ← standard
-"data_dir": "/home/flureelabs/address-service/data/libpostal_senzing"  ← senzing
+"data_dir": "/home/flureelabs/address-parser-service/address-service/data/libpostal"          ← standard
+"data_dir": "/home/flureelabs/address-parser-service/address-service/data/libpostal_senzing"  ← senzing
 ```
 
 Then restart:
 ```bash
 # If running via nohup:
 pkill -f "address-service"
-cd ~/address-service
+cd /home/flureelabs/address-parser-service/address-service
 nohup bash run.sh > logs/service.log 2>&1 &
 
 # If running via systemd:
@@ -160,20 +170,20 @@ sudo systemctl restart address-service
 ### Changed only `.cc` or `.h` files (no CMakeLists.txt change)
 ```bash
 # On VM:
-cd ~/address-service-build/build
+cd /home/flureelabs/address-parser-service/address-service-build/build
 make -j$(nproc)
-cp address-service ~/address-service/bin/address-service
+cp address-service /home/flureelabs/address-parser-service/address-service/bin/address-service
 
 # Restart service
 pkill -f "address-service"
-cd ~/address-service
+cd /home/flureelabs/address-parser-service/address-service
 nohup bash run.sh > logs/service.log 2>&1 &
 ```
 
 ### Changed CMakeLists.txt (new file, new option, new library)
 ```bash
 # On VM:
-cd ~/address-service-build/build
+cd /home/flureelabs/address-parser-service/address-service-build/build
 cmake3 .. \
     -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_TESTS=OFF \
@@ -186,21 +196,19 @@ cmake3 .. \
     -DOPENSSL_CRYPTO_LIBRARY=/usr/lib64/libcrypto.so.1.1 \
     -DOPENSSL_SSL_LIBRARY=/usr/lib64/libssl.so.1.1
 make -j$(nproc)
-cp address-service ~/address-service/bin/address-service
+cp address-service /home/flureelabs/address-parser-service/address-service/bin/address-service
 
 # Restart service
 pkill -f "address-service"
-cd ~/address-service
+cd /home/flureelabs/address-parser-service/address-service
 nohup bash run.sh > logs/service.log 2>&1 &
 ```
 
 ### Changed config.json only
 ```bash
 # No rebuild needed — just restart
-sudo systemctl restart address-service
-# or
 pkill -f "address-service"
-cd ~/address-service
+cd /home/flureelabs/address-parser-service/address-service
 nohup bash run.sh > logs/service.log 2>&1 &
 ```
 
@@ -457,10 +465,9 @@ Type: Custom TCP | Port: 8090 | Source: 0.0.0.0/0
 | Public IP | 100.31.167.228 |
 | Port | 8090 |
 | User | flureelabs |
-| Service dir | /home/flureelabs/address-service |
-| Standard data | /home/flureelabs/address-service/data/libpostal |
-| Senzing data | /home/flureelabs/address-service/data/libpostal_senzing |
-| GCC | gcc10 (/usr/bin/gcc10-gcc) |
-| GLIBC | 2.26 |
-| libpostal | 1.1.4 @ /usr/local/lib |
-| Drogon | v1.9.3 @ /usr/local/lib |
+| Service dir | /home/flureelabs/address-parser-service/address-service |
+| Standard data | /home/flureelabs/address-parser-service/address-service/data/libpostal |
+| Senzing data | /home/flureelabs/address-parser-service/address-service/data/libpostal_senzing |
+| Source + build | /home/flureelabs/address-parser-service/address-service-build |
+| libpostal source | /home/flureelabs/address-parser-service/libpostal |
+| Drogon source | /home/flureelabs/address-parser-service/drogon |
