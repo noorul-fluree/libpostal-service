@@ -84,7 +84,13 @@ Raw input
 ---
 
 ## Build Commands
-
+#### Note: 
+* If Records (json objects) is greater than the MAX_BATCH_SIZE (current 10K) thne only 10k will be returned as parse remaing will be discarded. With message.
+```text
+"total_processed": 2000,
+total_received": 2005,
+"warning": "Received 2005 records but maximum is 2000. Only first 2000 records processed. Remaining 5 records were discarded."
+```
 ### First time / clean build
 ```bash
 cd ~/FAISS-Actual-26June25/address-service-optimized
