@@ -287,6 +287,7 @@ curl -s http://localhost:8090/health/info | python3 -m json.tool
 | `CMakeLists.txt` | `cmake3 ..` → `make` → copy binary → restart |
 | `config.json` only | restart only, no rebuild |
 | `data_dir` in config | restart only |
+| `change Max_Record or batch size ` in Files | `config.json`, `InputValidator.h`, `EnrichController.h` |
 
 ---
 
