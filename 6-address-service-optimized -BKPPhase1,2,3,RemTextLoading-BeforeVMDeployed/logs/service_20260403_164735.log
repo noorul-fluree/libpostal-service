@@ -1,0 +1,66 @@
+
+
+
+
+
+arguments: ./build/address-service -c config/config.json
+Current dir: /home/noorulk/FAISS-Actual-26June25/address-service-optimized
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2026-04-03 16:47:35.886 (   0.001s) [main thread     ]             loguru.cpp:841   INFO| Logging to './logs/service_20260403_164735.log', mode: 'a', verbosity: 9
+2026-04-03 16:47:35.886 (   0.001s) [main thread     ]               Logger.h:76    INFO| === Address Normalization Service starting ===
+2026-04-03 16:47:35.886 (   0.001s) [main thread     ]               Logger.h:77    INFO| Log file: ./logs/service_20260403_164735.log
+2026-04-03 16:47:35.886 (   0.001s) [main thread     ]                main.cc:61    INFO| [main] Configuration loaded from config/config.json
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:140   INFO| [main] port=8080 cache=1 geonames_lmdb='/home/noorulk/libpostal_data/geonames/lmdb' batch_max=2
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:79    INFO| ====================================================
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:80    INFO|   Address Normalization Service v1.0.0
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:81    INFO| ====================================================
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:82    INFO|   Port:           8080
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:83    INFO|   Worker threads: 7
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:84    INFO|   Cache:          enabled (max 5000000 entries, TTL 86400s)
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:88    INFO|   Rule engine:    enabled
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:89    INFO|   LLM fallback:   disabled
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:90    INFO|   Auth:           disabled
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:91    INFO|   Max addr len:   500 chars
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:92    INFO|   Batch max:      2 addresses
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:93    INFO|   libpostal data: /home/noorulk/libpostal_data/libpostal
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:94    INFO| ====================================================
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:95    INFO|   Endpoints available:
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:96    INFO|   POST  /api/v1/parse
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:97    INFO|   POST  /api/v1/normalize
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:98    INFO|   POST  /api/v1/batch   (max 2 records)
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:99    INFO|   POST  /api/v1/enrich  (max 2 records)
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:100   INFO|   POST  /api/v1/enrich/geo/lmdb (max 2 records)
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:101   INFO|   GET   /ref/v1/postal/{code}
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:102   INFO|   POST  /ref/v1/postal/batch
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:103   INFO|   GET   /ref/v1/country/{code}
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:104   INFO|   GET   /ref/v1/state/{country}/{abbrev}
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:105   INFO|   GET   /ref/v1/city/search
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:106   INFO|   POST  /ref/v1/enrich
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:107   INFO|   POST  /ref/v1/validate
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:108   INFO|   GET   /ref/v1/postal/reverse
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:109   INFO|   POST  /ref/v1/abbreviation/expand
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:110   INFO|   GET   /health/live
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:111   INFO|   GET   /health/ready
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:112   INFO|   GET   /health/startup
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:113   INFO|   GET   /health/info
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:114   INFO|   GET   /metrics
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:115   INFO| ====================================================
+2026-04-03 16:47:35.887 (   0.002s) [main thread     ]                main.cc:162   INFO| [main] Initializing libpostal (this takes 15-30s)...
+2026-04-03 16:47:41.494 (   5.609s) [main thread     ]       AddressParser.cc:48    INFO| [AddressParser] libpostal ready | data_dir=/home/noorulk/libpostal_data/libpostal | parser only, no classifier
+2026-04-03 16:47:41.494 (   5.609s) [main thread     ]                main.cc:167   INFO| [main] libpostal ready
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]       AddressParser.cc:67    INFO| [AddressParser] language classifier ready
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:175   INFO| [main] language classifier ready
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:183   INFO| [main] Cache initialized (max 5000000 entries)
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:187   INFO| [main] Pre-processor, Rule engine, Confidence scorer ready
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:190   INFO| [main] LLM fallback disabled — Phase 4 inactive
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:194   INFO| [main] Initializing GeoNamesLMDB...
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]        GeoNamesLMDB.cc:55    INFO| [GeoNamesLMDB] Opening 7 LMDB databases from /home/noorulk/libpostal_data/geonames/lmdb/
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]        GeoNamesLMDB.cc:66    INFO| [GeoNamesLMDB] Ready — admin1 + admin2 + postal + postal_reverse + cities + countries + aliases
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:196   INFO| [main] GeoNamesLMDB ready | dir=/home/noorulk/libpostal_data/geonames/lmdb
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:208   INFO| [main] Authentication: DISABLED
+2026-04-03 16:47:41.621 (   5.736s) [main thread     ]                main.cc:215   INFO| All services initialized, starting HTTP server...
+2026-04-03 16:47:45.273 (   9.388s) [        2A5FC640]RefCountryController.cc:27    INFO| [ref/country] query=356
+2026-04-03 16:47:48.756 (  12.871s) [        2A5FC640] RefPostalController.cc:162   INFO| [ref/postal/batch] total=4 found=3 not_found=1
+2026-04-03 16:47:51.573 (  15.688s) [        2A5FC640]RefAbbreviationControll:36    INFO| [ref/abbreviation/expand] input_len=44 changed=true
+2026-04-03 16:47:54.826 (  18.941s) [        2A5FC640]RefCountryController.cc:27    INFO| [ref/country] query=356
