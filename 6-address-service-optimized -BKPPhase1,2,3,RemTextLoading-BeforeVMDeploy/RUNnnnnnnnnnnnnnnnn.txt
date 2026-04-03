@@ -1,0 +1,101 @@
+# Start (always use this)
+cd ~/FAISS-Actual-26June25/address-service-optimized
+export DISABLE_LLM=true
+./build/address-service --config config/config.json
+
+# Rebuild after any code change
+cd build && make -j$(nproc) && cd ..
+
+# Full clean rebuild (only if CMakeLists.txt changed)
+rm -rf build && mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF -DENABLE_MIMALLOC=OFF
+make -j$(nproc) && cd ..
+
+# Rebuild after ANY code change
+cd ~/FAISS-Actual-26June25/address-service-optimized/build
+make -j$(nproc)
+cd ..
+./build/address-service --config config/config.json
+
+
+### Full clean rebuild (when CMakeLists.txt changes or weird linker errors)
+
+cd ~/FAISS-Actual-26June25/address-service-optimized
+rm -rf build && mkdir build && cd build
+
+# Without LLM:
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF -DENABLE_MIMALLOC=OFF
+make -j$(nproc)
+
+# With LLM compiled in:
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF -DENABLE_MIMALLOC=OFF -DENABLE_LLM=ON
+make -j$(nproc)
+
+IMPOOOOORTTANT------------ 🧹 Only if something breaks again
+cd ~/FAISS-Actual-26June25/address-service-optimized
+rm -rf build CMakeCache.txt CMakeFiles Makefile cmake_install.cmake
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TESTS=OFF -DENABLE_MIMALLOC=OFF
+make -j$(nproc)
+
+cd ~/FAISS-Actual-26June25/address-service-optimized
+export DISABLE_LLM=true
+./build/address-service --config config/config.json
+
+
+
+No cmake .. needed — only .cc/.h changed, not CMakeLists.txt.
+-- only code cnage then compile - 
+cd /home/noorulk/FAISS-Actual-26June25/address-service-optimized/build
+make -j$(nproc)
+
+cd ~/FAISS-Actual-26June25/address-service-optimized
+export DISABLE_LLM=true
+./build/address-service --config config/config.json
+
+
+Current WSL IP - hostname -I | awk '{print $1}'
+172.28.211.177        example - http://172.28.211.177:8080 
+
+Wsl version - wsl.exe -l -v
+
+
+IN config.json:
+ "libpostal": {
+        // // Standard model (current) libpostal:
+        "data_dir": "/home/noorulk/libpostal_data/libpostal", 
+        // Senzing model (switch to this):
+        // "data_dir": "/home/noorulk/libpostal_data/libpostal_senzing"
+        "default_country": "",
+        "default_language": ""
+    },
+
+
+for Senzing :  23 March 2026:
+
+                        What changed and why:
+
+
+Old                                                 New                                         WHY ???
+
+libpostal_setup()                           libpostal_setup_datadir(dir)                    Old version ignores env var, new explicitly passes path
+
+libpostal_setup_parser()                    libpostal_setup_parser_datadir(dir)             Same reason
+
+libpostal_setup_language_classifier()       libpostal_setup_language_classifier_datadir(dir)        Same reason
+
+setenv(...)                                 removed                                             No longer needed
+
+
+-----                                       data_dir_ member added                              Stores path so classifier init can use it later
+
+
+So with only one line of rrpave in config we can swicth senzing or libotal defalut and vice versa?
+Yes. Exactly one line in config/config.json:
+json"data_dir": "/home/noorulk/libpostal_data/libpostal"
+↕ swap to:
+json"data_dir": "/home/noorulk/libpostal_data/libpostal_senzing"
+Then restart — no rebuild, no code change, nothing else:
+./build/address-service -c config/config.json
+That's it. The binary is identical — only the data directory changes. The libpostal_setup_datadir() fix we just made is exactly what enables this — it reads the path fresh from config every startup instead of relying on a hardcoded env var.
+
